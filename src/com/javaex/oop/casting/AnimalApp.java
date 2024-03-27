@@ -42,7 +42,7 @@ public class AnimalApp {
 			//	현재 pet이 어떤 클래스의 인스턴스인지 확인
 			if (pet instanceof Dog) {	//	Dog의 인스턴스면
 				((Dog)pet).bark();
-			} else if (pet instanceof Cat) {	//	Cat이 인스턴스면
+			} else if (pet instanceof Cat) {	//	Cat의 인스턴스면
 				((Cat)pet).meow();
 			}
 			
@@ -52,11 +52,6 @@ public class AnimalApp {
 			pet.eat();
 			pet.walk();
 //			pet.meow();
-			if (pet instanceof Dog) {	//	Dog의 인스턴스면
-				((Dog)pet).bark();
-			} else if (pet instanceof Cat) {	//	Cat이 인스턴스면
-				((Cat)pet).meow();
-			}
 		}
 	}
 
