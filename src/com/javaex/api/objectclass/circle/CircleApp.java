@@ -8,10 +8,14 @@ public class CircleApp {
 		Circle c = new Circle(3, 3, 12);
 		Circle d = c;
 		
-		System.out.println(a.equals(b));	//	true
-		System.out.println(a.equals(c));	//	false
-		System.out.println(a.equals(d));	//	false
-		System.out.println(d.equals(c));	//	true
+		Circle e = new Circle(6, 4, 10);
+		
+		System.out.println(a.equals(b));	
+		System.out.println(a.equals(c));	
+		System.out.println(a.equals(d));	
+		System.out.println(d.equals(c));	
+		
+		System.out.println(a.equals(e));	
 	}
 
 }

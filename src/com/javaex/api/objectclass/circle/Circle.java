@@ -8,19 +8,23 @@ public class Circle {
 
 	//	생성자
 	public Circle(int x, int y, int radius) {
-		super();
 		this.x = x;
 		this.y = y;
 		this.radius = radius;
 	}
 
-	//	동등성 조건 : 반지름이 같으면 동등하다
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Circle) {
 			Circle other = (Circle) obj;
-
-			return radius == other.radius;
+//			동등성 조건 : 반지름이 같으면 동등하다 
+//			return radius == other.radius;
+			
+//			동등성 조건 : x, y 좌표가 같고, 반지름 같으면 동등하다
+			return x == other.x &&
+					y == other.y &&
+					radius == other.radius;
 		}
 		return super.equals(obj);
 	}
