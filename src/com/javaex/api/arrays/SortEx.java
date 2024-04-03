@@ -13,12 +13,12 @@ class Member implements Comparable {
 	public Member(String name) {
 		this.name = name;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Member [name=" + name + "]";
 	}
-	
+
 	@Override
 	public int compareTo(Object o) {
 		// 두 객체의 선후 관계를 비교해서 
@@ -29,7 +29,7 @@ class Member implements Comparable {
 		if (o instanceof Member) {
 			//	Member로 캐스팅 가능
 			Member other = (Member)o;
-			//	대소 관계의 비교는 name 필드로 비교
+			//	대소 관계의 비교는 name 필드로
 			return name.compareTo(other.name);
 		}
 		return 0;
@@ -60,7 +60,7 @@ public class SortEx {
 		//	내림차순
 		Arrays.sort(scores, Collections.reverseOrder());
 		System.out.println("내림차순 정렬:" + Arrays.toString(scores));
-		//	객체 내부의 Compararator로 객체의 선후 관계를 규정해야 하기 때문에
+		//	객체 내부의 Comparator 로 객체의 선후 관계를 규정해야 하기 때문에
 		//		프리미티브타입은 역순정렬 될 수 없다
 	}
 	
