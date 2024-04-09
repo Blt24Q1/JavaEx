@@ -8,7 +8,6 @@ import java.io.IOException;
 public class ThrowsExceptEx {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		ThrowsExcept except =new ThrowsExcept();
 		//checkedException은 반드시 예외 처리!
 		try {
