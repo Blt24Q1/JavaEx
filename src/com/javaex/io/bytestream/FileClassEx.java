@@ -7,7 +7,7 @@ public class FileClassEx {
 	// files의 경로 (실제)위치
 	private static String rootPath = System.getProperty("user.dir") + "\\files";
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		System.out.println("루트 경로:" + rootPath);
 
 		File f = new File(rootPath); // 파일명으로 파일 정보 객체 생성
@@ -19,11 +19,11 @@ public class FileClassEx {
 		// 디렉터리 만들기
 		// files 디렉터리 아래 files\\subdir\\subdir2 -> 디렉터리 생성
 		File newDir = new File(rootPath + "\\subdir\\subdir2"); // 파일(디렉터리) 정보
-		if (!newDir.exists()) { // 존재 여부 확인
+//		if (!newDir.exists()) { // 존재 여부 확인
 			if (newDir.mkdirs()) { // 실제 생성
 				System.out.println(newDir + "을 생성했습니다.");
 			}
-		}
+//		}
 
 		printFileInfo(f);
 
