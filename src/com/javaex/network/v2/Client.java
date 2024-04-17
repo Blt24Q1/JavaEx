@@ -12,6 +12,7 @@ import java.io.Writer;
 import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.Scanner;
 
 //	v2. 클라이언트로부터 메시지 전달 -> Echo Back
 public class Client {
@@ -40,23 +41,34 @@ public class Client {
 			Writer osw = new OutputStreamWriter(os, "UTF-8");
 			BufferedWriter bw = new BufferedWriter(osw);
 			
-			//	메시지 전송 
-			String msg = "테스트 메시지";	//	서버로 전송할 메시지
-			bw.write(msg);	//	서버로 전송
-			bw.newLine();
-			bw.flush();
-			
-			System.out.println("전송 메시지:" + msg);
-			
-			//	Echo Back 메시지 수신 
+//			Echo Back 메시지 수신 
 			//	Echo Back 메시지 수신을 위한 Stream
 			InputStream is = socket.getInputStream();
 			Reader isr = new InputStreamReader(is, "UTF-8");
 			BufferedReader br = new BufferedReader(isr);
 			
-			String rcvMsg = br.readLine();
-			System.out.println("수신 메시지:" + rcvMsg);
+			Scanner scanner = new Scanner(System.in);
 			
+			while (true) {
+				//	메시지 전송 
+//				String msg = "테스트 메시지";	//	서버로 전송할 메시지
+				String msg = scanner.nextLine(); //	전송할 메시지를 입력 받음
+				
+				if (msg.equals("/q")) {
+					System.out.println("접속을 종료합니다.");
+					break;
+				}
+				bw.write(msg);	//	서버로 전송
+				bw.newLine();
+				bw.flush();
+				
+				System.out.println("전송 메시지:" + msg);
+				
+				String rcvMsg = br.readLine();
+				System.out.println("수신 메시지:" + rcvMsg);
+			}
+			
+			scanner.close();
 			br.close();
 			bw.close();
 			
