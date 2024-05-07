@@ -37,6 +37,7 @@ public class HRSalary {
 			String sql = "SELECT first_name || ' ' || last_name, salary FROM employees " 
 					+ "WHERE salary BETWEEN "
 					+ input[0] + " AND " + input[1] + " ORDER BY salary ASC";
+			
 			System.out.println("Query:" + sql);
 
 			rs = stmt.executeQuery(sql); // DB Cursor 반환
