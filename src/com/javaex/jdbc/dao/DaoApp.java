@@ -11,9 +11,9 @@ public class DaoApp {
 		System.out.println();
 		
 //		insertAuthor();
-//		updateAuthor();
+		updateAuthor();
 //		getAuthor();
-		deleteAuthor();
+//		deleteAuthor();
 		
 		System.out.println();
 		
@@ -38,7 +38,8 @@ public class DaoApp {
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.print("레코드 ID:");
-		Long authorId = Long.parseLong(scanner.nextLine());
+		Long authorId = scanner.nextLong();
+		scanner.nextLine();
 		
 		AuthorDAO dao = new AuthorDAOImplOracle();
 		AuthorVO vo = dao.get(authorId);
@@ -54,8 +55,10 @@ public class DaoApp {
 	
 	private static void updateAuthor() {
 		Scanner scanner = new Scanner(System.in);
+		
 		System.out.print("변경할 레코드 ID:");
-		Long authorId = Long.parseLong(scanner.nextLine());
+		Long authorId = scanner.nextLong();
+		scanner.nextLine();
 		System.out.print("이름:");
 		String name = scanner.nextLine();
 		System.out.print("정보:");
