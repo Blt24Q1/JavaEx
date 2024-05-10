@@ -10,8 +10,9 @@ public class DaoApp {
 		listAuthors();
 		System.out.println();
 		
-//		insertAuthor();
-		updateAuthor();
+		insertAuthor();
+		
+//		updateAuthor();
 //		getAuthor();
 //		deleteAuthor();
 		
@@ -26,7 +27,8 @@ public class DaoApp {
 		System.out.print("삭제할 레코드 ID:");
 		Long authorId = Long.parseLong(scanner.nextLine());
 		
-		AuthorDAO dao = new AuthorDAOImplOracle();
+//		AuthorDAO dao = new AuthorDAOImplOracle();
+		AuthorDAO dao = new AuthorDAOImplMySQL();
 		boolean success = dao.delete(authorId);
 		
 		System.out.println("Author DELETE " + (success ? "성공": "실패"));
@@ -41,7 +43,8 @@ public class DaoApp {
 		Long authorId = scanner.nextLong();
 		scanner.nextLine();
 		
-		AuthorDAO dao = new AuthorDAOImplOracle();
+//		AuthorDAO dao = new AuthorDAOImplOracle();
+		AuthorDAO dao = new AuthorDAOImplMySQL();
 		AuthorVO vo = dao.get(authorId);
 		
 		if (vo != null) {
@@ -66,7 +69,8 @@ public class DaoApp {
 		
 		AuthorVO vo = new AuthorVO(authorId, name, desc);
 		
-		AuthorDAO dao = new AuthorDAOImplOracle();
+//		AuthorDAO dao = new AuthorDAOImplOracle();
+		AuthorDAO dao = new AuthorDAOImplMySQL();
 		boolean success = dao.update(vo);
 		
 		System.out.println("Author UPDATE " + (success ? "성공": "실패"));
@@ -75,7 +79,6 @@ public class DaoApp {
 	
 	private static void insertAuthor() {
 		Scanner scanner = new Scanner(System.in);
-		
 		System.out.print("이름:");
 		String name = scanner.nextLine();
 		
@@ -84,7 +87,8 @@ public class DaoApp {
 		
 		AuthorVO vo = new AuthorVO(name, desc);
 		
-		AuthorDAO dao = new AuthorDAOImplOracle();
+//		AuthorDAO dao = new AuthorDAOImplOracle();
+		AuthorDAO dao = new AuthorDAOImplMySQL();
 		boolean success = dao.insert(vo);
 		
 		System.out.println("Author INSERT " + (success ? "성공": "실패"));
@@ -94,7 +98,9 @@ public class DaoApp {
 	}
 	
 	private static void listAuthors() {
-		AuthorDAO dao = new AuthorDAOImplOracle();
+//		AuthorDAO dao = new AuthorDAOImplOracle();
+		AuthorDAO dao = new AuthorDAOImplMySQL();
+		
 		System.out.println("========== Authors ==========");
 		
 		List<AuthorVO> list = dao.getList();
